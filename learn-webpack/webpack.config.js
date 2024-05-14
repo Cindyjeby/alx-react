@@ -9,6 +9,14 @@ module.exports = {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'deploy')
     },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'deploy'),
+        },
+        open: true,
+        compress: true,
+        port: 8080
+    },
     module: {
         rules: [
             {
