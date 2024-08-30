@@ -1,23 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-function Car() {
-    return (
-        <>
-            <h2>Hi, I am a car</h2>
-            <Garage/>
-        </>
-    );
+function Car(props) {
+    return <h1>I love {props.brand.model}</h1>
 }
 
 function Garage() {
+    const carInfo = {name: "Ford", model: "Mustang"}
     return (
         <>
-            <h3>How many car are in here?</h3>
+            <h2>Which brands are there</h2>
+            <Car brand={carInfo} />
         </>
     );
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Car />);
+root.render(<Garage />)
 
