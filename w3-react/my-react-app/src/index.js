@@ -1,15 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-function Football() {
-    const shoot = () => {
-        alert("Great shot!");
+// passing arguments using the shoot function
+function MissedGoal() {
+    return <h1>Missed!</h1>;
+}
+
+function MadeGoal() {
+    return <h1>Goal!</h1>;
+}
+
+function Goal(props) {
+    const isGoal = props.isGoal;
+    if (isGoal) {
+        return <MadeGoal />;
     }
-    return (
-        <button onClick={shoot}>Take the shot!</button>
-    );
+    return <MissedGoal/>;
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Football />)
+root.render(<Goal isGoal={true} />);
 
