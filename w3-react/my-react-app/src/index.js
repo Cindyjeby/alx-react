@@ -3,24 +3,15 @@ import ReactDOM from 'react-dom/client';
 
 // conditional rednering using ternary operator
 
-function Car(props) {
-    return <li>I am a { props.brand }</li>;
-}
-function Garage() {
-    const cars = [
-        {id: 1, brand: 'Ford'},
-        {id: 2, brand: 'BMW'},
-        {id: 3, brand: 'Audi'}
-    ];
+function MyForm() {
     return (
-        <>
-            <h1>Who live in my garage?</h1>
-            <ul>
-                {cars.map((car) => <Car key={car.id} brand={car.brand} />)}
-            </ul>
-        </>
-    );
+        <form>
+            <label>Enter your name:
+                <input type="text" />
+            </label>
+        </form>
+    )
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Garage />);
+root.render(<MyForm />);
