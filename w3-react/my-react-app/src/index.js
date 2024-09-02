@@ -3,20 +3,20 @@ import ReactDOM from 'react-dom/client';
 
 // conditional rednering using ternary operator
 
-function MissedGoal() {
-    return <h1>MISSED!</h1>
+function Car(props) {
+    return <li>I am a { props.brand }</li>;
 }
-function MadeGoal() {
-    return <h1>GOAL!</h1>
-}
-
-function Goal(props) {
-    const isGoal = props.isGoal;
+function Garage() {
+    const cars = ['Ford', 'BMW', 'Audi'];
     return (
         <>
-            { isGoal ? <MadeGoal/> : <MissedGoal/>}
+            <h1>Who live in my garage?</h1>
+            <ul>
+                {cars.map((car) => <Car brand={car} />)}
+            </ul>
         </>
     );
 }
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Goal isGoal={true} />);
+root.render(<Garage />);
