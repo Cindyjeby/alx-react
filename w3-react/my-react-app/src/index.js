@@ -2,32 +2,40 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {useState} from "react";
 
-function Car() {
-    const [car, setCar] = useState({
-        brand: 'Ford',
-        model: "Mustang",
-        Year: "1964",
-        color: "red"
-    });
-    const updateColor = () => {
-        setCar(previousState => {
-            return { ...previousState, color: "blue"}
-        });
-    }
+function MyForm() {
+    const [inputs, setInputs] = useState({});
 
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values => ({...values, [name]: value}))
+    }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        alert(inputs);
+    }
     return (
-        <>
-            <h1> My {car.brand}</h1>
-            <p>
-                it is a{car.color} {car.model} from {car.year}
-            </p>
-            <button
-            type="button"
-            onClick={updateColor}
-            >Blue</button>
-        </>
+        <form onSubmit={handleSubmit}>
+            <label>Enter your name:
+                <input
+                type="text"
+                name="username"
+                value={inputs.username || ""}
+                onChange={handleChange}
+                />
+            </label>
+            <label> Enter your age:
+                <input
+                type="number"
+                name="age"
+                value={inputs.age || ""}
+                onChange={handleChange}
+                />
+            </label>
+            <inputs type="submit" />
+        </form>
     )
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Car />);
+root.render(<MyForm />);
