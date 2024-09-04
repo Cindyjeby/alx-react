@@ -1,24 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {useState} from "react";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Layout from "./pages/Layout";
+import Home from "./pages/Home";
+import Blogs from "./pages/Blogs";
+import Contact from "./pages/Contact";
+import NoPage from "./pages/NoPage";
 
-function MyForm() {
-    const [myCar, setMyCar] = useState("Volvo");
-
-    const handleChange = (event) => {
-        setMyCar(event.target.value)
-    }
-
+export default function App() {
     return (
-        <form>
-            <select value={myCar} onChange={handleChange}>
-                <option value="Ford">Ford</option>
-                <option value="Volvo">Volvo</option>
-                <option value="Fiat">Fiat</option>
-            </select>
-        </form>
-    )
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path="blogs" element={<Blogs />} />
+                    <Route path="contact" element={<Contact />} />
+                    <Route path="*" element={<NoPage />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<MyForm />);
+root.render(<App />);
