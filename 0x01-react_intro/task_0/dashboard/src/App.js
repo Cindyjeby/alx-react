@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src='/images/favicon.ico' alt="logo" />
+        <img src='/images/holberton.jpg' className='App-logo' alt="logo" />
 	  <h1>School Dashboard</h1>
       </header>
 	<body className="App-body">
