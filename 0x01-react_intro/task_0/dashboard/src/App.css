@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-
 .App-header {
   background-color: white;
   padding: 20px;
@@ -35,4 +34,21 @@
   color: black;
   font-style: italic;
   text-align: center; 
+}
+form .container {
+  display: flex;
+  gap: 4rem;
+  padding-top: 20px;
+}
+form .btn{
+  margin-top: 20px;
+}
+form button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: #e0344b;
+  color: #fff;
 }
